@@ -2,7 +2,6 @@ class Deposit < ApplicationRecord
   belongs_to :tradeline
 
   validates :deposit_date, comparison: { greater_than_or_equal_to: Date.today}
-  # validates :amount, comparison: { less_than_or_equal_to: self.tradeline.outstanding_balance }
   validate :amount_does_not_exceed_outstanding_balance
 
   def amount_does_not_exceed_outstanding_balance
