@@ -592,3 +592,125 @@ Processing by TradelinesController#index as */*
 Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms | Allocations: 4200)
 
 
+Started GET "/tradelines/1/deposits" for ::1 at 2024-04-06 16:06:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepositsController#index as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTradeline Load (0.5ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:5:in `index'
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."tradeline_id" = ?[0m  [["tradeline_id", 1]]
+  ↳ app/controllers/deposits_controller.rb:5:in `index'
+Completed 200 OK in 36ms (Views: 9.8ms | ActiveRecord: 3.2ms | Allocations: 18845)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:14:02 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTradeline Load (3.0ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+Completed 400 Bad Request in 10ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 2914)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:15:22 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (pry):2:in `create'
+  [1m[36mTradeline Load (0.1ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ (pry):2:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (pry):2:in `create'
+Completed 400 Bad Request in 40401ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 22049)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:18:08 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTradeline Load (0.1ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+Completed 400 Bad Request in 10ms (Views: 0.1ms | ActiveRecord: 3.7ms | Allocations: 5955)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:18:10 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTradeline Load (0.9ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+Completed 400 Bad Request in 4ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1877)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:18:18 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTradeline Load (1.1ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+Completed 400 Bad Request in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 1888)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:19:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTradeline Load (0.1ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:15:in `create'
+Completed 400 Bad Request in 37ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 15895)
+
+
+Started POST "/tradelines/1000/deposits" for ::1 at 2024-04-06 16:29:04 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1000", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+  [1m[36mTradeline Load (2.4ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+Completed 400 Bad Request in 49022ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 19005)
+
+
+Started POST "/tradelines/1/deposits" for ::1 at 2024-04-06 16:30:01 -0400
+Processing by DepositsController#create as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline_id"=>"1", "deposit"=>{"deposit_date"=>"2024-04-13", "amount"=>148.56}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+  [1m[36mTradeline Load (1.7ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines" WHERE "tradelines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+  [1m[36mDeposit Load (7.7ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."tradeline_id" = ?[0m  [["tradeline_id", 1]]
+  ↳ app/models/tradeline.rb:5:in `total_deposit_amount'
+  [1m[36mDeposit Create (0.4ms)[0m  [1m[32mINSERT INTO "deposits" ("deposit_date", "amount", "tradeline_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["deposit_date", "2024-04-13"], ["amount", 148.56], ["tradeline_id", 1], ["created_at", "2024-04-06 20:30:19.077901"], ["updated_at", "2024-04-06 20:30:19.077901"]]
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/deposits_controller.rb:16:in `create'
+Completed 201 Created in 17236ms (Views: 0.4ms | ActiveRecord: 10.9ms | Allocations: 15655)
+
+
+Started GET "/tradelines/" for ::1 at 2024-04-06 17:02:16 -0400
+Processing by TradelinesController#index as */*
+  Parameters: {"amount"=>148.56, "deposit_date"=>"2024-04-13", "tradeline"=>{"amount"=>148.56}}
+  [1m[36mTradeline Load (1.9ms)[0m  [1m[34mSELECT "tradelines".* FROM "tradelines"[0m
+  ↳ app/controllers/tradelines_controller.rb:6:in `index'
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."tradeline_id" IN (?, ?)[0m  [["tradeline_id", 1], ["tradeline_id", 2]]
+  ↳ app/controllers/tradelines_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 3.4ms | Allocations: 9209)
+
+

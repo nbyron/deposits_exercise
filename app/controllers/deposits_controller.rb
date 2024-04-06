@@ -2,7 +2,7 @@ class DepositsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    render json: Deposit.where(tradeline_id: params[:tradeline_id])
+    render json: Tradeline.find(params[:tradeline_id]).deposits
   end
 
   def show
